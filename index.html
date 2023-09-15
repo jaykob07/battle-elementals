@@ -4,28 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <h1 id="title">Batalla  🔥💧🍃 </h1>
+    <div class="container">
+    <h1 id="title">Elements</h1>
 
     
-    <section id="seleccionar-macota">
+    <section id="seleccionar-mascota">
 
         <h2>Elige tu mascota:</h2>
 
-        <label for="hipodoge">Hipodoge</label>
-        <input type="radio" name="mascota" id="hipodoge">
+        <div class="tarjetas">
+            <label class="tarjeta-monsters" for="hipodoge">Rumblegulp <img src="imagenes/rumblegulp.png" alt=""></label>
+            <input type="radio" name="mascota" id="hipodoge">
+    
+            <label class="tarjeta-monsters" for="capipepo">Munchsquish <img src="imagenes/munchsquish.png" alt=""></label>
+            <input type="radio" name="mascota" id="capipepo">
+    
+            <label class="tarjeta-monsters" for="ratigueya">Slurpzilla <img src="imagenes/slurpzilla.png" alt=""></label>
+            <input type="radio" name="mascota" id="ratigueya">
+        </div>
 
-        <label for="capipepo">Capipepo</label>
-        <input type="radio" name="mascota" id="capipepo">
-
-        <label for="ratigueya">Ratigueya</label>
-        <input type="radio" name="mascota" id="ratigueya">
-
-
-        <button id="boton-mascota">seleccionar</button>
+         <button id="boton-mascota">seleccionar</button>
         
     </section>
 
@@ -59,6 +62,6 @@
         
     </section>
     <script src="./js/mokepon.js"></script>
-
+</div>
 </body>
 </html>
