@@ -6,40 +6,44 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 28px;   
+    font-size: 25px;   
 } 
 
 
 body {
-    background-color: rgb(120, 110, 110);
-    padding-top: 80px;
-    display: block;
+    
+     padding-top: 80px;
+    
     display: flex;
     justify-content: center;
     font-family: 'Russo One', sans-serif;
     background-image: url(/imagenes/bkg5.jpg);
     background-size: cover;
-    background-repeat: no-repeat;
-    border: black solid 20px;
+    background-repeat:no-repeat; 
+    background-attachment: fixed;
 }
 
 .container {
-    width: 950px;
+    width: auto;
     height: auto;
+    margin: 0px 40px;
     border-radius: 10px;
-    /* background-color: rgb(100, 91, 91); */
+    backdrop-filter: blur(60px);
+    margin: 40px;
     justify-content: center;
+    border: 2px solid rgb(115, 154, 57);
+
 }
 
 #title {
-    text-size-adjust: 80px;
     width: auto;
     height: 70px;
+    padding: 10px;
     text-align: center;
     color: rgb(128, 125, 113);
     background-color:rgb(200, 228, 178);
     border-radius: 10px;
-
+    fill-opacity: 1.5;
 }
 
 
@@ -47,39 +51,47 @@ body {
 #seleccionar-mascota {
     width: 100%;
     padding-bottom: 20px;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-    background-color: tomato;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border-radius: 2px;
-   
+}
+
+.tarjetas input {
+    display: none;
 }
 
 .tarjetas {
-display: flex;
-margin: 50px;
-align-items: center;
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); */
+
+    display: flex;
+    margin: 50px;
+    width: auto;
 }
 
 #seleccionar-mascota .tarjeta-monsters{
     width: 300px;
     height: 150px;
-    background: aliceblue;
+    color: rgb(2, 39, 40);
     box-sizing: border-box;
     padding: 10px;
     border-radius: 10px;
     margin: 10px;
-    border: 2px solid hotpink;
-}
-
-.tarjeta-monsters{
     display: flex;
     justify-content: center;
     align-items: center;
-    
-   
+    /* backdrop-filter: blur(60px); */
+    border: 2px solid rgb(115, 154, 57);
+    transition: transform 0.3s ease;
 }
+ 
+ .tarjeta-monsters:hover {
+    transform: scale(1.05);
+} 
+ 
+
 
 .tarjeta-monsters img {
     width: 80px;
@@ -87,28 +99,117 @@ align-items: center;
     height: auto;
     align-items: center;
 }
-
 input {
     display: none;
 }
+input:checked + label{
+    background-color: rgb(200, 228, 178);
+}
 
-button {
+/* button {
     background-color: rgb(175, 139, 209);
     border-radius: 5px;
     text-align: center;
-}
+} */
+
 .container #reiniciar {
+    width: 200px;
+    height: 100px;
+    border-radius: 20px;
+    background-color: aliceblue;
     display: flex;
     justify-content: center;
-    padding: 10px;
+    align-items: center;
     
+}
+
+.container #reiniciar #boton-reiniciar{
+background-color: transparent; 
+  border-color: transparent; 
+  outline: none; 
 }
 
 #boton-mascota {
     width: 300px;
     height: 40px;
     border-radius: 10px;
-    background: transparent;
+    /* background: lightcoral; */
     border: 2px solid white;
-    color: aliceblue;
+    color: rgb(114, 146, 175);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave */
 }
+
+#boton-mascota:active{
+    background-color: #2980b9;
+    color: black;
+}
+
+#seleccion-ataque {
+    flex-direction: column;
+    align-items: center;
+}
+ .botones{
+    width: 190px;
+    height: 60px;
+    background-color: #2980b9;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 20px;
+    border-color: transparent;
+ }
+
+ #mensajes{
+    width: 400px;
+    height: 200px;
+    margin-top: 20px;
+    background: rgb(200, 228, 178);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    color: rgb(128, 125, 113);
+    text-align: center;
+    gap: 20px;
+ }
+  .mensaje-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* background-color: rgb(200, 228, 178); */
+    margin: 50px;
+    gap: 10px;
+
+}
+
+.mensaje-container .mensaje-jugador{
+    background-color: rgb(200, 228, 178);
+    border-radius: 20px;
+    height: auto;
+    text-align: center;
+    padding: 4px;
+    color: rgb(128, 125, 113);
+}
+.mensaje-container .mensaje-enemigo{
+    background-color: rgb(200, 228, 178);
+    border-radius: 20px;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    padding: 4px;
+    color: rgb(128, 125, 113);
+}
+
+#seleccion-ataque h2{
+    margin: 10px;
+}
+
+#seleccionar-mascota h2{
+    margin: 10px;
+}
+/* 
+@media (max-with: 360px){
+    .tarjetas{
+        flex-direction: column;
+    }
+} */

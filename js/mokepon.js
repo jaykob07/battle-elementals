@@ -1,3 +1,5 @@
+// const { Alert } = require("bootstrap")
+
 let ataqueJugador
 let ataqueEnemigo
 let vidasJugador = 3
@@ -6,12 +8,20 @@ let vidasEnemigo = 3
     
 
 
+
 function iniciarJuego(){
+    let botonMascotaJugador = document.getElementById("boton-mascota") 
+    botonMascotaJugador.addEventListener("click", seleccionarMascotajugador)
+
     let sectionSeleccionarAtaque = document.getElementById('seleccion-ataque')
     sectionSeleccionarAtaque.style.display = 'none'
 
-    let botonMascotaJugador = document.getElementById("boton-mascota") 
-     botonMascotaJugador.addEventListener("click", seleccionarMascotajugador)
+    let sectionReiniciar = document.getElementById('reiniciar')
+    sectionReiniciar.style.display = 'none'
+
+    
+
+    //  aqui arranco el juego llamando cada uno de los botones las dos variables anteriores las coloco despues
 
     let botonFuego = document.getElementById ('boton-fuego')
     botonFuego.addEventListener('click', ataqueFuego)
@@ -25,29 +35,31 @@ function iniciarJuego(){
 
 }
 
+
 function seleccionarMascotajugador() {
-    let sectionSeleccionarMascota = document.getElementById("seleccionar-macota")
+    let botonMascotaJugador = document.getElementById("seleccionar-mascota") 
+    botonMascotaJugador.style.display = 'none'
+
+    let sectionSeleccionarMascota = document.getElementById("boton-mascota")
     sectionSeleccionarMascota.style.display = 'none' 
 
     let sectionSeleccionarAtaque = document.getElementById("seleccion-ataque")
-    sectionSeleccionarAtaque.style.display = 'block'
+    sectionSeleccionarAtaque.style.display = 'flex'
 
     
-
-    let inputHipodoge = document.getElementById('hipodoge')
-    let inputCapipepo = document.getElementById('capipepo')
-    let inputRatigueya = document.getElementById('ratigueya')
+    let inputRumblegulp = document.getElementById('rumblegulp', )
+    let inputMunchsquish = document.getElementById('munchsquish')
+    let inputSlurpzilla = document.getElementById('slurpzilla')
     let spanMascotaJugador = document.getElementById('mascota-jugador')
 
-    if (inputHipodoge.checked){
-        spanMascotaJugador.innerHTML = 'Hipodoge'
-    } else if(inputCapipepo.checked){
-        spanMascotaJugador.innerHTML = 'Capipepo'
-    } else if(inputRatigueya.checked){
-        spanMascotaJugador.innerHTML = 'Ratigueya'
-    } else {
-        alert('Selecciona un Mokepon!')
-    }
+    if (inputRumblegulp.checked){
+        spanMascotaJugador.innerHTML = 'Rumblegulp'
+    } else if(inputMunchsquish.checked){
+        spanMascotaJugador.innerHTML = 'Munchsquish'
+    } else if(inputSlurpzilla.checked){
+        spanMascotaJugador.innerHTML = 'Slurpzilla'
+    } 
+
     seleccionarMascotaenemigo()
    
 }
@@ -57,11 +69,11 @@ function seleccionarMascotaenemigo() {
     let spanMascotaEnemigo = document.getElementById('mascota-enemigo')
 
     if (mascotaAleatorio == 1){
-        spanMascotaEnemigo.innerHTML = 'Hipodoge'
+        spanMascotaEnemigo.innerHTML = 'Rumblegulp'
     } else if (mascotaAleatorio == 2){
-        spanMascotaEnemigo.innerHTML = 'Capipepo'
+        spanMascotaEnemigo.innerHTML = 'Munchsquish'
     } else {
-        spanMascotaEnemigo.innerHTML = 'Ratigueya'
+        spanMascotaEnemigo.innerHTML = 'Slurpzilla'
     }
 }
 
@@ -135,12 +147,14 @@ function revisarVidas() {
 }
 
 function crearMensajeFinal(resultadoFinal){
-    let sectionMensaje = document.getElementById('mensajes')
-    
-     let parrafo = document.createElement('p')
-    parrafo.innerHTML = resultadoFinal
+    let sectionReiniciar = document.getElementById('reiniciar')
+    sectionReiniciar.style.display = 'flex'
 
-    sectionMensaje.appendChild(parrafo)
+    let sectionMensaje = document.getElementById('resultado')
+    
+     sectionMensaje.innerHTML = resultadoFinal
+
+    
 
     let botonFuego = document.getElementById ('boton-fuego')
     botonFuego.disabled = true
@@ -152,16 +166,28 @@ function crearMensajeFinal(resultadoFinal){
 }
 
 function crearMensaje(resultado){
-    let sectionMensaje = document.getElementById('mensajes')
+    let sectionMensaje = document.getElementById('resultado')
+    let ataqueDeljugador = document.getElementById('ataque-del-jugador')
+    let ataqueDelenemigo = document.getElementById('ataque-Del-enemigo')
+    
+    let nuevoAtaquejugador = document.createElement('p')
+    let nuevoAtaqueenemigo = document.createElement('p')
 
-    let parrafo = document.createElement('p')
-    parrafo.innerHTML = 'tu mascota ataco con ' + ataqueJugador + ' la mascota del enemigo ataco con ' + ataqueEnemigo + ' ' + resultado
+    sectionMensaje.innerHTML = resultado
+    nuevoAtaquejugador.innerHTML = ataqueJugador
+    nuevoAtaqueenemigo.innerHTML = ataqueEnemigo
 
-    sectionMensaje.appendChild(parrafo)
+    // let parrafo = document.createElement('p')
+    // parrafo.innerHTML = 'tu mascota ataco con ' + ataqueJugador + ' la mascota del enemigo ataco con ' + ataqueEnemigo + ' ' + resultado
+
+    
+    ataqueDeljugador.appendChild(nuevoAtaquejugador)
+    ataqueDelenemigo.appendChild(nuevoAtaqueenemigo)
 }
 
 function reiniciarJuego() {
     location.reload()
+   
 }
 
 function aleatorio(min, max){
