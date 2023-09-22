@@ -116,11 +116,11 @@ input:checked + label{
     width: 200px;
     height: 100px;
     border-radius: 20px;
-    background-color: aliceblue;
+    background-color: #2980b9;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    border: 2px solid  rgb(128, 125, 113);
 }
 
 .container #reiniciar #boton-reiniciar{
@@ -133,11 +133,10 @@ background-color: transparent;
     width: 300px;
     height: 40px;
     border-radius: 10px;
-    /* background: lightcoral; */
-    border: 2px solid white;
-    color: rgb(114, 146, 175);
+    background: transparent;
+    border: 2px solid   rgb(115, 154, 57); 
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
 }
 
 #boton-mascota:active{
@@ -155,8 +154,9 @@ background-color: transparent;
     background-color: #2980b9;
     box-sizing: border-box;
     padding: 10px;
+    border: 2px solid  rgb(200, 228, 178);
     border-radius: 20px;
-    border-color: transparent;
+    
  }
 
  #mensajes{
@@ -190,6 +190,7 @@ background-color: transparent;
     padding: 4px;
     color: rgb(128, 125, 113);
 }
+
 .mensaje-container .mensaje-enemigo{
     background-color: rgb(200, 228, 178);
     border-radius: 20px;
